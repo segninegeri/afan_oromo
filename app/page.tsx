@@ -98,7 +98,7 @@ export default function Home() {
     <div className="min-h-screen">
       <HeroSection ref={heroRef} />
       <FeaturesSection ref={featuresRef} />
-      <FAQSection ref={faqRef} />
+      <FAQSection  />
     </div>
   );
 }
