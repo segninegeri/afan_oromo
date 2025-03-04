@@ -78,21 +78,26 @@ export default function ResourcesPage() {
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
         <div className="page-header text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Learning Resources</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Learning Resources
+          </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Access our comprehensive collection of Afan Oromo learning materials designed specifically for children.
+            Access our comprehensive collection of Afan Oromo learning materials
+            designed specifically for children.
           </p>
         </div>
 
         {/* Free Resources Section */}
         <section ref={freeResourcesRef} id="free-book" className="mb-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">Free Resources</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            Free Resources
+          </h2>
 
           <div className="free-resource-item glass-panel p-8 rounded-xl">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="md:w-1/3">
                 <Image
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/images/photo_2025-02-11_14-34-05.jpg"
                   alt="Afan Oromo Learning Book"
                   width={300}
                   height={400}
@@ -101,11 +106,14 @@ export default function ResourcesPage() {
               </div>
 
               <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold mb-4">Afan Oromo Beginner Book</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  Afan Oromo Beginner Book
+                </h3>
                 <p className="text-gray-300 mb-6">
-                  Our comprehensive beginners guide to Afan Oromo is perfect for children starting their language
-                  learning journey. This beautifully illustrated book covers basic vocabulary, simple phrases, and fun
-                  cultural insights in an engaging format.
+                  Our comprehensive beginners guide to Afan Oromo is perfect for
+                  children starting their language learning journey. This
+                  beautifully illustrated book covers basic vocabulary, simple
+                  phrases, and fun cultural insights in an engaging format.
                 </p>
                 <ul className="mb-8 space-y-2">
                   <li className="flex items-center gap-2">
@@ -140,14 +148,16 @@ export default function ResourcesPage() {
 
         {/* Premium Resources Section */}
         <section ref={premiumResourcesRef} id="premium-audio" className="mb-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">Premium Audio Resources</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            Premium Audio Resources
+          </h2>
 
           <div className="premium-resource-item glass-panel p-8 rounded-xl">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="md:w-1/3">
                 <div className="relative">
                   <Image
-                    src="/placeholder.svg?height=400&width=300"
+                    src="/images/photo_2025-02-11_14-34-05.jpg"
                     alt="Afan Oromo Audio Lessons"
                     width={300}
                     height={400}
@@ -160,11 +170,14 @@ export default function ResourcesPage() {
               </div>
 
               <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold mb-4">Afan Oromo Audio Collection</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  Afan Oromo Audio Collection
+                </h3>
                 <p className="text-gray-300 mb-6">
-                  Enhance your childs learning experience with our premium audio collection. Recorded by native Afan
-                  Oromo speakers, these audio lessons help develop proper pronunciation, listening skills, and
-                  conversational abilities.
+                  Enhance your childs learning experience with our premium audio
+                  collection. Recorded by native Afan Oromo speakers, these
+                  audio lessons help develop proper pronunciation, listening
+                  skills, and conversational abilities.
                 </p>
                 <ul className="mb-8 space-y-2">
                   <li className="flex items-center gap-2">
@@ -199,18 +212,20 @@ export default function ResourcesPage() {
           <div className="mt-12 glass-panel p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-4">Payment Information</h3>
             <p className="text-gray-300 mb-4">
-              We accept payments through Commercial Bank of Ethiopia. After completing your purchase, youll receive
-              immediate access to all premium audio content.
+              We accept payments through Commercial Bank of Ethiopia. After
+              completing your purchase, youll receive immediate access to all
+              premium audio content.
             </p>
             <div className="bg-black/30 p-4 rounded-lg">
               <p className="text-sm text-gray-400">
-                For assistance with payment, please contact our support team at support@afanoromolearning.com
+                For assistance with payment, please contact our support team at
+                support@afanoromolearning.com
               </p>
             </div>
           </div>
         </section>
       </div>
     </div>
-  )
+  );
 }
 

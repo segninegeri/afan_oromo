@@ -34,7 +34,7 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
           <div className="relative">
             <div className="parallax-element glass-panel p-4 md:p-6">
               <Image
-                src="/placeholder.svg?height=300&width=600"
+                src="/images/photo_2025-02-11_14-34-05.jpg"
                 alt="Afan Oromo Learning Platform"
                 width={600}
                 height={300}

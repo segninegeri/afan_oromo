@@ -1,15 +1,25 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { CreditCard, CheckCircle, ArrowLeft, Upload } from "lucide-react";
 
-import { useState, useEffect, useRef } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { gsap } from "gsap"
-import { CreditCard, CheckCircle, ArrowLeft, Upload } from "lucide-react"
+// Define the type for formData
+type FormData = {
+  fullName: string;
+  email: string;
+  transactionId: string;
+  amount: string;
+  date: string;
+  paymentMethod: string;
+  receiptImage: File | null; // Allow File or null
+};
 
 export default function PaymentPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
     transactionId: "",
@@ -17,15 +27,14 @@ export default function PaymentPage() {
     date: "",
     paymentMethod: "bank",
     receiptImage: null,
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null)
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
-  const pageRef = useRef<HTMLDivElement>(null)
+  const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Page animations
     if (pageRef.current) {
       gsap.fromTo(
         ".payment-content > *",
@@ -36,46 +45,47 @@ export default function PaymentPage() {
           stagger: 0.1,
           duration: 0.6,
           ease: "power3.out",
-        },
-      )
+        }
+      );
     }
-  }, [])
+  }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    const file = e.target.files?.[0];
     if (file) {
-      setFormData((prev) => ({ ...prev, receiptImage: file }))
+      setFormData((prev) => ({ ...prev, receiptImage: file }));
 
       // Create preview URL
-      const reader = new FileReader()
+      const reader = new FileReader();
       reader.onloadend = () => {
-        setPreviewUrl(reader.result as string)
-      }
-      reader.readAsDataURL(file)
+        setPreviewUrl(reader.result as string);
+      };
+      reader.readAsDataURL(file);
     }
-  }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      // In a real application, you would verify the payment with the bank
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      setIsSuccess(true)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setIsSuccess(true);
     } catch (error) {
-      console.error("Payment verification failed", error)
+      console.error("Payment verification failed", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
+  // Rest of your JSX remains unchanged
   return (
     <div ref={pageRef} className="min-h-screen py-20 px-4 smooth-scroll">
       <div className="max-w-4xl mx-auto">
@@ -90,12 +100,19 @@ export default function PaymentPage() {
             </Link>
 
             <div className="glass-panel p-8 rounded-xl">
-              <h1 className="text-3xl font-bold mb-8 text-center">Premium Access Payment</h1>
+              <h1 className="text-3xl font-bold mb-8 text-center">
+                Premium Access Payment
+              </h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Payment Instructions</h2>
-                  <p className="text-gray-300 mb-4">To access our premium audio content, please follow these steps:</p>
+                  <h2 className="text-xl font-semibold mb-4">
+                    Payment Instructions
+                  </h2>
+                  <p className="text-gray-300 mb-4">
+                    To access our premium audio content, please follow these
+                    steps:
+                  </p>
 
                   <ol className="space-y-4 text-gray-300">
                     <li className="flex gap-2">
@@ -103,7 +120,8 @@ export default function PaymentPage() {
                         1
                       </span>
                       <span>
-                        Make a payment of <strong>499 ETB</strong> using one of our payment methods.
+                        Make a payment of <strong>499 ETB</strong> using one of
+                        our payment methods.
                       </span>
                     </li>
                     <li className="flex gap-2">
@@ -111,7 +129,9 @@ export default function PaymentPage() {
                         2
                       </span>
                       <span>
-                        For Bank Transfer: Account Number <strong>1000123456789</strong> (Commercial Bank of Ethiopia)
+                        For Bank Transfer: Account Number{" "}
+                        <strong>1000123456789</strong> (Commercial Bank of
+                        Ethiopia)
                       </span>
                     </li>
                     <li className="flex gap-2">
@@ -126,13 +146,18 @@ export default function PaymentPage() {
                       <span className="bg-primary/20 text-primary rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
                         4
                       </span>
-                      <span>Take a screenshot of your payment confirmation.</span>
+                      <span>
+                        Take a screenshot of your payment confirmation.
+                      </span>
                     </li>
                     <li className="flex gap-2">
                       <span className="bg-primary/20 text-primary rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
                         5
                       </span>
-                      <span>Upload the screenshot and fill out the form with your payment details.</span>
+                      <span>
+                        Upload the screenshot and fill out the form with your
+                        payment details.
+                      </span>
                     </li>
                   </ol>
 
@@ -155,10 +180,15 @@ export default function PaymentPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Payment Verification</h2>
+                  <h2 className="text-xl font-semibold mb-4">
+                    Payment Verification
+                  </h2>
                   <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                      <label htmlFor="fullName" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="fullName"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Full Name
                       </label>
                       <input
@@ -174,7 +204,10 @@ export default function PaymentPage() {
                     </div>
 
                     <div className="mb-4">
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Email Address
                       </label>
                       <input
@@ -190,7 +223,10 @@ export default function PaymentPage() {
                     </div>
 
                     <div className="mb-4">
-                      <label htmlFor="paymentMethod" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="paymentMethod"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Payment Method
                       </label>
                       <select
@@ -201,13 +237,18 @@ export default function PaymentPage() {
                         required
                         className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       >
-                        <option value="bank">Commercial Bank of Ethiopia</option>
+                        <option value="bank">
+                          Commercial Bank of Ethiopia
+                        </option>
                         <option value="telebirr">Telebirr</option>
                       </select>
                     </div>
 
                     <div className="mb-4">
-                      <label htmlFor="transactionId" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="transactionId"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Transaction ID / Receipt Number
                       </label>
                       <input
@@ -223,7 +264,10 @@ export default function PaymentPage() {
                     </div>
 
                     <div className="mb-4">
-                      <label htmlFor="amount" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="amount"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Amount Paid (ETB)
                       </label>
                       <input
@@ -239,7 +283,10 @@ export default function PaymentPage() {
                     </div>
 
                     <div className="mb-6">
-                      <label htmlFor="date" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="date"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Payment Date
                       </label>
                       <input
@@ -254,7 +301,10 @@ export default function PaymentPage() {
                     </div>
 
                     <div className="mb-6">
-                      <label htmlFor="receiptImage" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="receiptImage"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Payment Screenshot/Receipt
                       </label>
                       <div className="border border-dashed border-white/30 rounded-lg p-4 text-center">
@@ -284,9 +334,13 @@ export default function PaymentPage() {
                             <Upload size={32} className="text-gray-400 mb-2" />
                           )}
                           <span className="text-sm text-gray-300">
-                            {previewUrl ? "Change image" : "Click to upload payment screenshot"}
+                            {previewUrl
+                              ? "Change image"
+                              : "Click to upload payment screenshot"}
                           </span>
-                          <span className="text-xs text-gray-400">JPG, PNG or GIF (Max 5MB)</span>
+                          <span className="text-xs text-gray-400">
+                            JPG, PNG or GIF (Max 5MB)
+                          </span>
                         </label>
                       </div>
                     </div>
@@ -295,7 +349,9 @@ export default function PaymentPage() {
                       type="submit"
                       disabled={isSubmitting}
                       className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg transition-colors ${
-                        isSubmitting ? "bg-gray-600 cursor-not-allowed" : "bg-primary hover:bg-primary-dark"
+                        isSubmitting
+                          ? "bg-gray-600 cursor-not-allowed"
+                          : "bg-primary hover:bg-primary-dark"
                       } text-white`}
                     >
                       {isSubmitting ? (
@@ -322,10 +378,13 @@ export default function PaymentPage() {
                 <CheckCircle size={80} className="text-primary" />
               </div>
 
-              <h1 className="text-3xl font-bold mb-4">Payment Verified Successfully!</h1>
+              <h1 className="text-3xl font-bold mb-4">
+                Payment Verified Successfully!
+              </h1>
 
               <p className="text-xl text-gray-300 mb-8">
-                Thank you for your purchase. You now have access to all premium audio content.
+                Thank you for your purchase. You now have access to all premium
+                audio content.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -348,6 +407,5 @@ export default function PaymentPage() {
         )}
       </div>
     </div>
-  )
+  );
 }
-
