@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { ChevronDown } from "lucide-react"
-import { gsap } from "gsap"
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
+import { gsap } from "gsap";
 
 interface FAQItem {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 const faqs: FAQItem[] = [
@@ -40,11 +40,11 @@ const faqs: FAQItem[] = [
     answer:
       "We offer a 7-day satisfaction guarantee for our premium content. If you're not satisfied with the premium audio resources, please contact our support team within 7 days of purchase, and we'll process a refund according to our refund policy.",
   },
-]
+];
 
 export default function FAQSection() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const answersRef = useRef<(HTMLDivElement | null)[]>([])
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const answersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleFAQ = (index: number) => {
     // If clicking the same item, close it
@@ -55,8 +55,8 @@ export default function FAQSection() {
         duration: 0.5,
         ease: "power2.inOut",
         onComplete: () => setActiveIndex(null),
-      })
-      return
+      });
+      return;
     }
 
     // If another item is open, close it first
@@ -66,11 +66,11 @@ export default function FAQSection() {
         opacity: 0,
         duration: 0.5,
         ease: "power2.inOut",
-      })
+      });
     }
 
     // Open the clicked item
-    setActiveIndex(index)
+    setActiveIndex(index);
     gsap.fromTo(
       answersRef.current[index],
       {
@@ -82,23 +82,28 @@ export default function FAQSection() {
         opacity: 1,
         duration: 0.5,
         ease: "power2.inOut",
-      },
-    )
-  }
+      }
+    );
+  };
 
   // Initialize refs array
   useEffect(() => {
-    answersRef.current = answersRef.current.slice(0, faqs.length)
-  }, [])
+    answersRef.current = answersRef.current.slice(0, faqs.length);
+  }, []);
 
   return (
     <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">Frequently Asked Questions</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">
+          Frequently Asked Questions
+        </h2>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="glass-panel rounded-xl overflow-hidden transition-all duration-300">
+            <div
+              key={index}
+              className="glass-panel rounded-xl overflow-hidden transition-all duration-300"
+            >
               <button
                 className="w-full text-left p-6 focus:outline-none hover:bg-white/5 transition-colors"
                 onClick={() => toggleFAQ(index)}
@@ -116,7 +121,9 @@ export default function FAQSection() {
               </button>
 
               <div
-                ref={(el) => (answersRef.current[index] = el)}
+                ref={(el) => {
+                  answersRef.current[index] = el;
+                }}
                 className="overflow-hidden"
                 style={{ height: 0, opacity: 0 }}
               >
@@ -127,6 +134,5 @@ export default function FAQSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
