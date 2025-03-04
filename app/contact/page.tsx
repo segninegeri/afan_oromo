@@ -91,15 +91,14 @@ export default function ContactPage() {
 
     // Simulate form submission
     try {
-      // In a real application, you would send the form data to your server
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  setSubmitStatus("success");
+  setFormData({ name: "", email: "", subject: "", message: "" });
+} catch {
+  setSubmitStatus("error");
+} finally {
+  setIsSubmitting(false);
+}
       // Reset status after 5 seconds
       setTimeout(() => {
         setSubmitStatus(null);
