@@ -39,7 +39,7 @@ const FeaturesSection = forwardRef<HTMLDivElement>((props, ref) => {
       description:
         "Engage with interactive exercises and games designed to make learning Afan Oromo fun and effective.",
       items: [
-        "Gamified learning with points and rewards",
+        " learning with points and rewards",
         "Interactive quizzes to test knowledge",
         "Progress tracking to monitor improvement",
       ],
