@@ -101,9 +101,9 @@ export default function ResourcesPage() {
               </div>
 
               <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold mb-4">Afan Oromo Beginner's Book</h3>
+                <h3 className="text-2xl font-bold mb-4">Afan Oromo Beginner Book</h3>
                 <p className="text-gray-300 mb-6">
-                  Our comprehensive beginner's guide to Afan Oromo is perfect for children starting their language
+                  Our comprehensive beginners guide to Afan Oromo is perfect for children starting their language
                   learning journey. This beautifully illustrated book covers basic vocabulary, simple phrases, and fun
                   cultural insights in an engaging format.
                 </p>
@@ -162,7 +162,7 @@ export default function ResourcesPage() {
               <div className="md:w-2/3">
                 <h3 className="text-2xl font-bold mb-4">Afan Oromo Audio Collection</h3>
                 <p className="text-gray-300 mb-6">
-                  Enhance your child's learning experience with our premium audio collection. Recorded by native Afan
+                  Enhance your childs learning experience with our premium audio collection. Recorded by native Afan
                   Oromo speakers, these audio lessons help develop proper pronunciation, listening skills, and
                   conversational abilities.
                 </p>
@@ -199,7 +199,7 @@ export default function ResourcesPage() {
           <div className="mt-12 glass-panel p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-4">Payment Information</h3>
             <p className="text-gray-300 mb-4">
-              We accept payments through Commercial Bank of Ethiopia. After completing your purchase, you'll receive
+              We accept payments through Commercial Bank of Ethiopia. After completing your purchase, youll receive
               immediate access to all premium audio content.
             </p>
             <div className="bg-black/30 p-4 rounded-lg">

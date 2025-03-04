@@ -114,8 +114,8 @@ export default function ContactPage() {
         <div className="page-header text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Have questions or feedback? We'd love to hear from you. Send us a
-            message and we'll respond as soon as possible.
+            Have questions or feedback? We&apos;d love to hear from you. Send us
+            a message and we&apos;ll respond as soon as possible.
           </p>
         </div>
 
