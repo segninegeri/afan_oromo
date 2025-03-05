@@ -144,22 +144,15 @@ h6 {
 /* Gradient button styles */
 .btn-gradient {
   @apply relative overflow-hidden;
-  background: linear-gradient(to right, rgba(0, 100, 0, 0.6), rgba(0, 150, 0, 0.6)); /* 60% opacity */
-  backdrop-filter: blur(12px); /* Stronger blur */
+  background: linear-gradient(to right, rgba(101, 101, 101, 0.6), rgba(0, 150, 0, 0.449)); /* 60% opacity */
+  backdrop-filter: blur(12px); 
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more visible border */
+  border: 1px solid rgba(255, 255, 255, 0.2); 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-.btn-gradient::before {
-  content: "";
-  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-  background: linear-gradient(to right, rgb(0, 80, 0), rgb(0, 130, 0));
-}
 
-.btn-gradient:hover::before {
-  @apply opacity-100;
-}
+
 
 .btn-gradient > * {
   @apply relative z-10;

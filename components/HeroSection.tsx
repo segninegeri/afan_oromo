@@ -8,7 +8,7 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <section
       ref={ref}
-      className="hero-section relative min-h-screen flex items-center justify-center px-4 py-20 mt-12"
+      className="hero-section relative min-h-screen flex items-center justify-center px-4 py-20 mt-24"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

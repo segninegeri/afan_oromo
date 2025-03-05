@@ -74,7 +74,7 @@ export default function ResourcesPage() {
   }, [])
 
   return (
-    <div ref={pageRef} className="min-h-screen py-20 px-4">
+    <div ref={pageRef} className="min-h-screen py-20 px-4 mt-24">
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
         <div className="page-header text-center mb-20">
@@ -199,7 +199,7 @@ export default function ResourcesPage() {
                 </ul>
 
                 <Link
-                  href="/premium/payment"
+                  href="https://t.me/@Kitila321"
                   className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-6 py-3 rounded-lg transition-colors"
                 >
                   <CreditCard size={20} />
