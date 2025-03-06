@@ -11,34 +11,24 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What age group is this platform designed for?",
+    question: "Barnootni kun garee umurii kamiif qophaa'e?",
     answer:
-      "Our platform is specifically designed for children aged 6-12, with content and activities tailored to their learning needs. The interface is intuitive and engaging, with colorful visuals and interactive elements that appeal to young learners.",
+      "Barsiisni keenya addatti daa’imman umuriin isaanii waggaa 6-12 ta’aniif kan qophaa’e yoo ta’u, qabiyyee fi sochiiwwan fedhii barumsaa isaanii wajjin walsimu of keessaa qaba.",
   },
   {
-    question: "Is the PDF book really free?",
-    answer:
-      "Yes! Our comprehensive Afan Oromo learning book is completely free to download and use for educational purposes. We believe in making quality educational resources accessible to all children interested in learning Afan Oromo.",
+    question: `Kitaabilee jiran bifa "softcopy"dhaan ni argannaa?`,
+    answer: `Eeyyen! Kitaabileen keenya hunduu bifa "softcopy"dhaanis akkasumas, bifa "hardcopy"dhaanis nii jiru.`,
   },
   {
-    question: "How do I access the premium audio content?",
+    question: "Faaruuwwan jiran akkamittan argachuu danda'a?",
     answer:
-      "Premium audio content is available after payment through Commercial Bank of Ethiopia or Telebirr. Once your payment is verified with a screenshot of your transaction, you'll receive immediate access to all premium audio materials.",
+      "Kaffaltii isin irraa eegamu erga Commercial Bank of Ethiopia / TeleBirr irratti gootani booda isiniif ergama.",
   },
   {
-    question: "Can I use this platform on mobile devices?",
+    question:
+      "Bilbila harkaa irratti website kana fayyadamuudhan barachuu nan danda'a?",
     answer:
-      "Our platform is fully responsive and works seamlessly on smartphones, tablets, and desktop computers. Children can learn Afan Oromo on any device with an internet connection, making it convenient for learning at home or on the go.",
-  },
-  {
-    question: "How often is new content added?",
-    answer:
-      "We regularly update our platform with new learning materials, activities, and audio content. Premium subscribers receive monthly content updates, while our free resources are refreshed quarterly to ensure the learning experience remains engaging and up-to-date.",
-  },
-  {
-    question: "Do you offer refunds for premium content?",
-    answer:
-      "We offer a 7-day satisfaction guarantee for our premium content. If you're not satisfied with the premium audio resources, please contact our support team within 7 days of purchase, and we'll process a refund according to our refund policy.",
+      "Eyyen! Website keenya bilbila harkaa irrattis ta'e koompiitara irrattis fayyadamuu isin dandeessisa.",
   },
 ];
 
@@ -95,7 +85,7 @@ export default function FAQSection() {
     <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">
-          Frequently Asked Questions
+          Gaaffiiwwan Irra Deddeebiin Gaafataman
         </h2>
 
         <div className="space-y-4">

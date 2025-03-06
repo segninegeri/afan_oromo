@@ -13,68 +13,67 @@ const FeaturesSection = forwardRef<HTMLDivElement>((props, ref) => {
   const features = [
     {
       icon: BookOpen,
-      title: "Free PDF Book",
+      title: "Kitaaba",
       description:
-        "Download our comprehensive Afan Oromo learning book for free. Perfect for offline learning and practice.",
+        "Kitaabiilee Afaan Oromoo bilisaan argachuun ijoollee keessassan qaraa.",
       items: [
-        "Colorful illustrations designed for children",
-        "Progressive learning path from basics to advanced",
-        "Interactive exercises with answer keys",
+        "Fakkiiwwan hawwisiisoo ijoolleef qopha'an",
+        "Barnoota saffisaa",
+        "Gaaffiilee shaakallii deebii waliin",
       ],
     },
     {
       icon: Headphones,
-      title: "Premium Audio",
+      title: "Bifa sagaleen",
       description:
-        "Access high-quality audio recordings by native speakers to perfect your pronunciation and listening skills.",
+        "Shaakallii fi taphoota adda addaa fayyadamuun dandeetti dubbii Afaan Oromoo ijoollee keessanii guddisaa.",
       items: [
-        "Native speaker recordings with clear pronunciation",
-        "Vocabulary practice with audio flashcards",
-        "Downloadable MP3 files for offline practice",
+        "Namoota Afaan Oromoo afaan haadhaa isaanii ta'een sagalee waraabame",
+        "Jechoota garaa garaa bifa shaakalaan kan qabate.",
+        "Faaruu heedduu internet  malee (offline) dhageeffachuuf bifa toluun barattootaaf kan qopha'e.",
       ],
     },
     {
       icon: MessageSquare,
-      title: "Interactive Learning",
+      title: "Barnoota bifa ammayyaan",
       description:
-        "Engage with interactive exercises and games designed to make learning Afan Oromo fun and effective.",
+        "Barnoota fakkii, sagalee fi taphoota garaa garaa qabuun dandeettii dubbii keessanii kan cimsu.",
       items: [
-        " learning with points and rewards",
-        "Interactive quizzes to test knowledge",
-        "Progress tracking to monitor improvement",
+        " tapha bifa hawwataa ta'een kan qabu",
+        "Dandeetii dubbii Afaan Oromoo qoruuf gaffiilee heeddu kan of keessatti qabate.",
+       
       ],
     },
     {
       icon: Globe,
-      title: "Cultural Context",
+      title: "Seenaa fi Aadaa",
       description:
-        "Learn Afan Oromo within its rich cultural context, understanding traditions and customs.",
+        "Afaan Oromoo guddina aadaa fi seenaa isaa wajjin baradhaa, duudhaa fi safuu isaas beekaa.",
       items: [
-        "Cultural stories and folktales",
-        "Traditional songs with translations",
-        "Cultural etiquette and customs",
+        " Seenaa aadaa fi dur durii Oromootaa",
+        "Sirboota aadaa hiika waliin",
+        "Safuu fi aadaa Oromoo barachuu",
       ],
     },
     {
       icon: Users,
-      title: "Community Learning",
+      title: "Barnoota waloo(waliinii)",
       description:
-        "Connect with other learners and practice your Afan Oromo skills in a supportive environment.",
+        "Barattoota biroo waliin wal qunnamuu fi Afaan Oromoo loogaan garaa garaa  wal  barsiisuu.",
       items: [
-        "Monthly virtual meetups for practice",
-        "Discussion forums for questions",
-        "Peer learning and language exchange",
+        "Jechoota naannoo hiikan wal-fakkaatan garuu, iddoo garaa-garaatti haala adda addaan ibsaman baradhaa.",
+        "Jechamootaa fi mammaaksawwan",
       ],
     },
     {
       icon: Award,
-      title: "Achievement System",
+      title: "Galma ga'iinsa afaanii",
       description:
-        "Stay motivated with our achievement system that rewards consistent learning and progress.",
+        "Barnoota keessan gara fuulduraatti cimsuudhaan badhaasa beekumsaa argadhaa.",
       items: [
-        "Digital badges for completed lessons",
-        "Level progression with certificates",
-        "Monthly challenges with special rewards",
+        "Ragaa dijitaalaa barnoota kan xumureef",
+        "Guddina sadarkaa afaanii waliin",
+        "Qormaata ji'a ji'aan badhaasa addaa qabu",
       ],
     },
   ];
@@ -83,7 +82,7 @@ const FeaturesSection = forwardRef<HTMLDivElement>((props, ref) => {
     <section ref={ref} className="py-20 px-4 smooth-scroll">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">
-          Learning Features
+          Barnoonni kun
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (

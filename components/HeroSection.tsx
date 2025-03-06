@@ -14,19 +14,19 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left hero-content">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              Learn <span className="text-primary">Afan Oromo</span> in a Fun &
-              Interactive Way
+              <span className="text-primary">Afan Oromo</span> karaa bashannansiisaa fi 
+              hawwataa ta'een baradhaa
             </h1>
             <p className="text-xl text-gray-300 mb-10">
-              An engaging language learning platform designed specifically for
-              children
+              Barnoota Afaan Oromoo bifa hawwataa ta’een qophaa'ee fi addatti daa’imman
+              bifa taphaan kan barsiisu
             </p>
             <div className="flex justify-center lg:justify-start">
               <Link
                 href="/resources"
                 className="btn-gradient inline-flex items-center justify-center text-white px-8 py-3 rounded-lg text-lg font-medium"
               >
-                Start Learning
+                Barachuuf
               </Link>
             </div>
           </div>

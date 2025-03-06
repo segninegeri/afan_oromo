@@ -1,51 +1,47 @@
-"use client"
+"use client";
 
-import type React from "react"
-import localFont from "next/font/local"
-import { motion, AnimatePresence } from "framer-motion"
-import "./globals.css"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import BackgroundEffects from "@/components/background-effects"
+import type React from "react";
+import localFont from "next/font/local";
+import { motion, AnimatePresence } from "framer-motion";
+import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import BackgroundEffects from "@/components/background-effects";
 
-// Load Clash Display locally
-const clash = localFont({
+// Load Caviar Dreams locally
+const caviar = localFont({
   src: [
     {
-      path: "../public/fonts/ClashDisplay-Regular.woff2",
+      path: "../public/fonts/CaviarDreams.ttf",
       weight: "400",
       style: "normal",
     },
+  ],
+  variable: "--font-caviar",
+});
+
+// Load Quicksand locally (adjust path if different)
+const quicksand = localFont({
+  src: [
     {
-      path: "../public/fonts/ClashDisplay-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/ClashDisplay-Semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/ClashDisplay-Bold.woff2",
-      weight: "700",
+      path: "../public/fonts/Quicksand_Book.otf", // Replace with actual path
+      weight: "400",
       style: "normal",
     },
   ],
-  variable: "--font-clash",
-})
-
-// Load Plus Jakarta Sans from Google Fonts
-
+  variable: "--font-quicksand",
+});
 
 export default function ClientLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${clash.variable} `}>
-      <body className={` bg-black min-h-screen relative overflow-x-hidden`}>
+    <html lang="en" className={`${caviar.variable} ${quicksand.variable}`}>
+      <body
+        className={`bg-black min-h-screen relative overflow-x-hidden font-caviar`}
+      >
         <BackgroundEffects />
         <Navbar />
         <AnimatePresence mode="wait">
@@ -62,6 +58,5 @@ export default function ClientLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }
-

@@ -1,31 +1,20 @@
 "use client";
 
 import type React from "react";
+
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap";
-import { CreditCard, CheckCircle, ArrowLeft, Upload } from "lucide-react";
-
-// Define the type for formData
-type FormData = {
-  fullName: string;
-  email: string;
-  transactionId: string;
-  amount: string;
-  date: string;
-  paymentMethod: string;
-  receiptImage: File | null; // Allow File or null
-};
+import { CheckCircle, ArrowLeft, Upload, Send } from "lucide-react";
 
 export default function PaymentPage() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    transactionId: "",
+    telegramUsername: "",
     amount: "499",
-    date: "",
-    paymentMethod: "bank",
+    paymentMethod: "telebirr",
     receiptImage: null,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,6 +24,7 @@ export default function PaymentPage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Page animations
     if (pageRef.current) {
       gsap.fromTo(
         ".payment-content > *",
@@ -75,8 +65,28 @@ export default function PaymentPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Simulate form submission - in a real scenario, this would open Telegram
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Simulate a delay to show the loading state
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      // Open Telegram with a pre-filled message
+      const telegramMessage = `Nagaadha! Meeshaalee barnootaa argachuuf kaffaltii barbaachisu raawwadheera.\n\nName: ${
+        formData.fullName
+      }\nEmail: ${formData.email}\nTelegram: ${
+        formData.telegramUsername
+      }\nAmount: ${formData.amount} ETB\nPayment Method: ${
+        formData.paymentMethod === "telebirr" ? "Telebirr" : "Bank Transfer"
+      }\n\nI've attached my payment receipt screenshot.`;
+
+      // Create a telegram URL - this will open the telegram app or web version
+      const telegramUrl = `https://t.me/@Kitila321?text=${encodeURIComponent(
+        telegramMessage
+      )}`;
+
+      // Open telegram in a new tab
+      window.open(telegramUrl, "_blank");
+
       setIsSuccess(true);
     } catch (error) {
       console.error("Payment verification failed", error);
@@ -85,9 +95,8 @@ export default function PaymentPage() {
     }
   };
 
-  // Rest of your JSX remains unchanged
   return (
-    <div ref={pageRef} className="min-h-screen py-20 px-4 smooth-scroll">
+    <div ref={pageRef} className="min-h-screen py-20 mt-24 px-4 smooth-scroll">
       <div className="max-w-4xl mx-auto">
         {!isSuccess ? (
           <div className="payment-content">
@@ -96,7 +105,7 @@ export default function PaymentPage() {
               className="inline-flex items-center gap-2 text-gray-300 hover:text-white mb-8"
             >
               <ArrowLeft size={16} />
-              Back to Resources
+              Gara duubatti deebi'uuf
             </Link>
 
             <div className="glass-panel p-8 rounded-xl">
@@ -129,9 +138,7 @@ export default function PaymentPage() {
                         2
                       </span>
                       <span>
-                        For Bank Transfer: Account Number{" "}
-                        <strong>1000123456789</strong> (Commercial Bank of
-                        Ethiopia)
+                        For Telebirr: Send to <strong>+251917642034</strong>
                       </span>
                     </li>
                     <li className="flex gap-2">
@@ -139,7 +146,9 @@ export default function PaymentPage() {
                         3
                       </span>
                       <span>
-                        For Telebirr: Send to <strong>0912345678</strong>
+                        For Bank Transfer: Account Number{" "}
+                        <strong>1000123456789</strong> (Commercial Bank of
+                        Ethiopia)
                       </span>
                     </li>
                     <li className="flex gap-2">
@@ -155,28 +164,20 @@ export default function PaymentPage() {
                         5
                       </span>
                       <span>
-                        Upload the screenshot and fill out the form with your
-                        payment details.
+                        Fill out the form with your details and upload the
+                        screenshot.
+                      </span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="bg-primary/20 text-primary rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                        6
+                      </span>
+                      <span>
+                        Send the information to us via Telegram and we'll
+                        provide access to premium content.
                       </span>
                     </li>
                   </ol>
-
-                  <div className="mt-6 flex gap-4 items-center">
-                    <Image
-                      src="/placeholder.svg?height=60&width=120"
-                      alt="Commercial Bank of Ethiopia Logo"
-                      width={120}
-                      height={60}
-                      className="opacity-70"
-                    />
-                    <Image
-                      src="/placeholder.svg?height=60&width=120"
-                      alt="Telebirr Logo"
-                      width={120}
-                      height={60}
-                      className="opacity-70"
-                    />
-                  </div>
                 </div>
 
                 <div>
@@ -224,6 +225,25 @@ export default function PaymentPage() {
 
                     <div className="mb-4">
                       <label
+                        htmlFor="telegramUsername"
+                        className="block text-sm font-medium mb-2"
+                      >
+                        Telegram Username
+                      </label>
+                      <input
+                        type="text"
+                        id="telegramUsername"
+                        name="telegramUsername"
+                        value={formData.telegramUsername}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="@your_telegram_username"
+                      />
+                    </div>
+
+                    <div className="mb-4">
+                      <label
                         htmlFor="paymentMethod"
                         className="block text-sm font-medium mb-2"
                       >
@@ -237,30 +257,11 @@ export default function PaymentPage() {
                         required
                         className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       >
+                        <option value="telebirr">Telebirr</option>
                         <option value="bank">
                           Commercial Bank of Ethiopia
                         </option>
-                        <option value="telebirr">Telebirr</option>
                       </select>
-                    </div>
-
-                    <div className="mb-4">
-                      <label
-                        htmlFor="transactionId"
-                        className="block text-sm font-medium mb-2"
-                      >
-                        Transaction ID / Receipt Number
-                      </label>
-                      <input
-                        type="text"
-                        id="transactionId"
-                        name="transactionId"
-                        value={formData.transactionId}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Enter transaction ID"
-                      />
                     </div>
 
                     <div className="mb-4">
@@ -279,24 +280,6 @@ export default function PaymentPage() {
                         required
                         className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         placeholder="Enter amount paid"
-                      />
-                    </div>
-
-                    <div className="mb-6">
-                      <label
-                        htmlFor="date"
-                        className="block text-sm font-medium mb-2"
-                      >
-                        Payment Date
-                      </label>
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       />
                     </div>
 
@@ -357,15 +340,24 @@ export default function PaymentPage() {
                       {isSubmitting ? (
                         <>
                           <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Verifying Payment...
+                          Processing...
                         </>
                       ) : (
                         <>
-                          <CreditCard size={20} />
-                          Verify Payment
+                          <Send size={20} />
+                          Send via Telegram
                         </>
                       )}
                     </button>
+
+                    <div className="mt-4 p-4 bg-black/30 rounded-lg">
+                      <p className="text-sm text-gray-400">
+                        <strong>Note:</strong> After submitting this form,
+                        you'll be redirected to Telegram to send your payment
+                        details. We'll verify your payment and provide access to
+                        premium content within 24 hours.
+                      </p>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -379,21 +371,55 @@ export default function PaymentPage() {
               </div>
 
               <h1 className="text-3xl font-bold mb-4">
-                Payment Verified Successfully!
+                Payment Information Submitted!
               </h1>
 
               <p className="text-xl text-gray-300 mb-8">
-                Thank you for your purchase. You now have access to all premium
-                audio content.
+                Thank you for your purchase. Please complete the process by
+                sending your payment screenshot via Telegram.
               </p>
 
+              <div className="glass-panel p-6 mb-8 max-w-md mx-auto">
+                <h2 className="text-lg font-semibold mb-3">Next Steps:</h2>
+                <ol className="text-left space-y-3 text-gray-300">
+                  <li className="flex gap-2">
+                    <span className="bg-primary/20 text-primary rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                      1
+                    </span>
+                    <span>
+                      Send your payment screenshot via Telegram to{" "}
+                      <strong>@machiavellijg</strong>
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="bg-primary/20 text-primary rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                      2
+                    </span>
+                    <span>
+                      We'll verify your payment (usually within 24 hours)
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="bg-primary/20 text-primary rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                      3
+                    </span>
+                    <span>
+                      You'll receive access to premium content via email
+                    </span>
+                  </li>
+                </ol>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/resources#premium-audio"
-                  className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+                <a
+                  href="https://t.me/machiavellijg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors inline-flex items-center justify-center gap-2"
                 >
-                  Access Premium Content
-                </Link>
+                  <Send size={20} />
+                  Open Telegram
+                </a>
 
                 <Link
                   href="/"

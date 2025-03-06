@@ -207,13 +207,13 @@ function MobileMenu({
             </Link>
           ))}
           <div className="menu-item mt-12 pt-12 border-t border-white/10 text-center w-full max-w-xs">
-            <p className="text-gray-400 mb-6">Learn Afan Oromo Today</p>
+            <p className="text-gray-400 mb-6">Afaan Oromoo Waliin haa barannu</p>
             <Link
               href="/resources"
               className="btn-gradient inline-flex items-center justify-center text-white px-8 py-3 rounded-lg text-lg font-medium w-full"
               onClick={onClose}
             >
-              Get Started
+              Qabiyyeewwan Barnootaa
             </Link>
           </div>
         </div>

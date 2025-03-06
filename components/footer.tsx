@@ -1,8 +1,28 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+const descriptions = [
+  "Afaan Oromo is spoken by over 40 million people, mainly in Ethiopia and Kenya.",
+  "It belongs to the Cushitic branch of the Afroasiatic language family.",
+  "The language has several dialects like Borana, Guji, and Wellega.",
+  "Since the 1990s, Afaan Oromo uses a Latin-based script called Qubee.",
+  "It’s an official working language in Ethiopia’s Oromia region.",
+  "Afaan Oromo has a rich oral tradition with proverbs and poetry.",
+  "The language features ejective consonants and a tonal system.",
+  "It’s closely tied to the Oromo’s Gadaa system, a traditional governance structure.",
+];
 
 export default function Footer() {
+  const [currentDescription, setCurrentDescription] = useState("");
+
+  useEffect(() => {
+    // Only runs on the client after hydration
+    const randomIndex = Math.floor(Math.random() * descriptions.length);
+    setCurrentDescription(descriptions[randomIndex]);
+  }, []); // Empty dependency array means it runs once on mount
+
   return (
-    <footer className="relative z-10 m-12  ">
+    <footer className="relative z-10 m-12">
       <div className="glass-panel max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 rounded-2xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -10,8 +30,7 @@ export default function Footer() {
               Afan Oromo Learning
             </h2>
             <p className="text-gray-300 max-w-md">
-              An interactive platform designed to help children learn the Afan
-              Oromo language through engaging content and activities.
+              {currentDescription || "Loading..."}
             </p>
           </div>
 
@@ -44,14 +63,7 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/premium"
-                  className="text-gray-300 hover:text-primary-light transition-colors"
-                >
-                  Premium Access
-                </Link>
-              </li>
+             
             </ul>
           </div>
 
@@ -88,8 +100,8 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10">
           <p className="text-center text-gray-400">
-            &copy; {new Date().getFullYear()} Afan Oromo Learning. All rights
-            reserved.
+            © {new Date().getFullYear()} Afaan Keenya ibsituu aadaa keenyati.
+            Mirgi maxxansaa kan eegame.
           </p>
         </div>
       </div>
