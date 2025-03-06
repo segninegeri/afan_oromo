@@ -13,9 +13,9 @@ export default function PaymentPage() {
     fullName: "",
     email: "",
     telegramUsername: "",
-    amount: "499",
-    paymentMethod: "telebirr",
-    receiptImage: null,
+    amount: "",
+    paymentMethod: "",
+    receiptImage: null as File | null, // Change this line
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
