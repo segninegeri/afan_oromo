@@ -14,12 +14,12 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left hero-content">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              <span className="text-primary">Afan Oromo</span> karaa bashannansiisaa fi 
-              hawwataa ta'een baradhaa
+              <span className="text-primary">Afan Oromo</span> karaa
+              bashannansiisaa fi hawwataa ta'een baradhaa
             </h1>
             <p className="text-xl text-gray-300 mb-10">
-              Barnoota Afaan Oromoo bifa hawwataa ta’een qophaa'ee fi addatti daa’imman
-              bifa taphaan kan barsiisu
+              Barnoota Afaan Oromoo bifa hawwataa ta’een qophaa'ee fi addatti
+              daa’imman bifa taphaan kan barsiisu
             </p>
             <div className="flex justify-center lg:justify-start">
               <Link
