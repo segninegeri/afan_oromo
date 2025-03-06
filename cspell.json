@@ -1,13 +1,5 @@
 {
-    "version": "0.2",
-    "language": "en",
-    "words": [
-        "gsap",
-        "yoyo",
-        "Afan",
-        "afan"
-    ],
     "ignorePaths": [
-        "node_modules/**"
+        "**/page.tsx"
     ]
 }
