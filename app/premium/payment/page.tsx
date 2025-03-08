@@ -1,7 +1,6 @@
-// app/premium/payment/page.tsx
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react"; // Added Suspense
 import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import PaymentHeader from "./PaymentHeader";
@@ -9,7 +8,8 @@ import PaymentInstructions from "./PaymentInstructions";
 import PaymentForm from "./PaymentForm";
 import SuccessMessage from "./SuccessMessage";
 
-export default function PaymentPage() {
+// Separate component for content that uses useSearchParams
+function PaymentContent() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -99,5 +99,13 @@ export default function PaymentPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function PaymentPage() {
+  return (
+    <Suspense fallback={<div>Loading payment details...</div>}>
+      <PaymentContent />
+    </Suspense>
   );
 }
