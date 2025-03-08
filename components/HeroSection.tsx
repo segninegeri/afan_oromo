@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import StackedText from "@/components/stacked-text";
 import { forwardRef } from "react";
-import afanOromoImage from "@/public/images/photo_2025-02-11_14-34-05.jpg";
+import afanOromoImage from "@/public/images/cover2.jpg";
 
 const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
   return (
@@ -41,7 +41,7 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
                 height={300}
                 className="rounded-lg w-full h-auto mb-8"
                 priority={true} // Optional: Prioritize loading if above the fold
-                loading="lazy" // Optional: Lazy load if below the fold
+              
                 onError={(e) => console.error("Image failed to load", e)} // Debug errors
               />
               <div className="absolute -right-8 bottom-0 transform translate-y-1/2">
