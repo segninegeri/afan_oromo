@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Download, Lock, CreditCard } from "lucide-react";
+import { Lock, CreditCard } from "lucide-react"; // Removed unused 'Download'
 
 export default function ResourcesPage() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -75,7 +75,7 @@ export default function ResourcesPage() {
         duration: 0.8,
         ease: "power3.inOut",
       })
-      .call(() => setSrc(newSrc)) // Update source after fade out
+      .call(() => setSrc(newSrc))
       .to(image, {
         opacity: 1,
         scale: 1,
@@ -95,7 +95,7 @@ export default function ResourcesPage() {
     const interval = setInterval(() => {
       animateImageChange(freeImageWrapperRef, setFreeImageSrc);
       animateImageChange(premiumImageWrapperRef, setPremiumImageSrc);
-    }, 4000); // Change every 4 seconds
+    }, 4000);
 
     // Page animations
     if (pageRef.current) {
@@ -172,7 +172,7 @@ export default function ResourcesPage() {
       clearInterval(interval);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [animateImageChange, getRandomImage]); // Added dependencies
 
   return (
     <div ref={pageRef} className="min-h-screen py-20 mt-24 px-4 scroll-smooth">
@@ -237,7 +237,7 @@ export default function ResourcesPage() {
                 </ul>
                 <div className="text-center md:text-left">
                   <Link
-                    href="/premium/payment?price=196.99" // Pass price as query parameter
+                    href="/premium/payment?price=196.99"
                     className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors"
                   >
                     <CreditCard size={20} />
@@ -303,7 +303,7 @@ export default function ResourcesPage() {
                 </ul>
                 <div className="text-center md:text-left">
                   <Link
-                    href="/premium/payment?price=150" // Pass price as query parameter
+                    href="/premium/payment?price=150"
                     className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors"
                   >
                     <CreditCard size={20} />
