@@ -1,6 +1,7 @@
 "use client";
 
 import type React from "react";
+import Head from "next/head"; // Import next/head to add favicon links
 import localFont from "next/font/local";
 import { motion, AnimatePresence } from "framer-motion";
 import "./globals.css";
@@ -39,6 +40,9 @@ export default function ClientLayout({
 }>) {
   return (
     <html lang="en" className={`${caviar.variable} ${quicksand.variable}`}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body
         className={`bg-black min-h-screen relative overflow-x-hidden font-caviar`}
       >
