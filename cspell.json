@@ -1,5 +1,12 @@
 {
+    "version": "0.2",
+    "language": "en",
     "ignorePaths": [
-        "**/page.tsx"
-    ]
+        "**/page.tsx",
+        "**/faq-section.tsx" // Add this to ignore faq-section.tsx
+    ],
+    "words": [
+        "gsap" // Add known library names to avoid warnings
+    ],
+    "flagWords": [],
 }

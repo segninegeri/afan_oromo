@@ -191,32 +191,33 @@ export default function ResourcesPage() {
         {/* Free Resources Section */}
         <section ref={freeResourcesRef} id="free-book" className="mb-24">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            Qabiyyeewwan bilisa ta'an
+            Kitaabiilee Barnootaa
           </h2>
           <div className="free-resource-item glass-panel p-8 rounded-xl">
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3">
+              <div className="md:w-1/3 w-full flex justify-center">
                 <div
                   ref={freeImageWrapperRef}
-                  className="relative fade-image w-[300px] h-[400px] overflow-hidden rounded-lg"
+                  className="relative fade-image w-full max-w-[300px] aspect-[3/4] overflow-hidden rounded-lg"
                 >
                   <Image
                     src={freeImageSrc}
                     alt="Afan Oromo Learning Book"
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover absolute inset-0 transition-all duration-300"
                   />
                 </div>
               </div>
-              <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold mb-4">
+              <div className="md:w-2/3 w-full">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center md:text-left">
                   Kitaaba Dura-Bultii(for beginners) Afaan Oromoo
                 </h3>
-                <p className="text-gray-300 mb-6">
+                <p className="text-gray-300 mb-6 text-sm sm:text-base text-center md:text-left">
                   Qajeelfama guutuu fi salphaa ta’e kan daa’imman barnoota Afaan
                   Oromoo isaanii ittin jalqaban. Qabiyyeen kitaaba kanaas
                 </p>
-                <ul className="mb-8 space-y-2">
+                <ul className="mb-8 space-y-2 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="text-primary">✓</span>
                     <span>Fuula 100 ol kan qabiyyee barnootaan guutame.</span>
@@ -231,16 +232,20 @@ export default function ResourcesPage() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-primary">✓</span>
-                    <span> Qajeelfama dubbachuu sirrii </span>
+                    <span>Qajeelfama dubbachuu sirrii</span>
                   </li>
                 </ul>
-                <Link
-                  href="/download/afan-oromo-beginners-book.pdf"
-                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
-                >
-                  <Download size={20} />
-                  Download Free PDF
-                </Link>
+                <div className="text-center md:text-left">
+                  <Link
+                    href="/premium/payment?price=196.99" // Pass price as query parameter
+                    className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors"
+                  >
+                    <CreditCard size={20} />
+                    <span className="text-sm sm:text-base">
+                      Kitaaba Bitachuuf
+                    </span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -253,15 +258,16 @@ export default function ResourcesPage() {
           </h2>
           <div className="premium-resource-item glass-panel p-8 rounded-xl">
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3">
+              <div className="md:w-1/3 w-full flex justify-center">
                 <div
                   ref={premiumImageWrapperRef}
-                  className="relative fade-image w-[300px] h-[400px] overflow-hidden rounded-lg"
+                  className="relative fade-image w-full max-w-[300px] aspect-[3/4] overflow-hidden rounded-lg"
                 >
                   <Image
                     src={premiumImageSrc}
                     alt="Afan Oromo Audio Lessons"
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover absolute inset-0 transition-all duration-300"
                   />
                   <div className="absolute top-4 right-4 bg-secondary p-2 rounded-full">
@@ -269,11 +275,11 @@ export default function ResourcesPage() {
                   </div>
                 </div>
               </div>
-              <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold mb-4">
+              <div className="md:w-2/3 w-full">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center md:text-left">
                   Faaruu fi meeshaalee deggersaa Sagaleedhan
                 </h3>
-                <p className="text-gray-300 mb-6">
+                <p className="text-gray-300 mb-6 text-sm sm:text-base text-center md:text-left">
                   Muuxannoo daa’imni keessan Afaan Oromoo ittiin baratu
                   fooyyeffachuuf, sagaleewwan qulqullina ol'aana qaban
                   fayyadamaa. Sagaleewwan kun namoota Afaanni Oromoo afaan
@@ -281,7 +287,7 @@ export default function ResourcesPage() {
                   sirrii, dhaggeeffachuu fi haasawuu akka ijoolleen keessan
                   baratan ni gargaara.
                 </p>
-                <ul className="mb-8 space-y-2">
+                <ul className="mb-8 space-y-2 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="text-primary">✓</span>
                     <span>Faaruu heedduu kan of keessaa qabu</span>
@@ -292,16 +298,20 @@ export default function ResourcesPage() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-primary">✓</span>
-                    <span> Offline itti fayyadamuuf buufachuu danda’amu</span>
+                    <span>Offline itti fayyadamuuf buufachuu danda’amu</span>
                   </li>
                 </ul>
-                <Link
-                  href="/premium/payment"
-                  className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-6 py-3 rounded-lg transition-colors"
-                >
-                  <CreditCard size={20} />
-                  Faaruu Bitachuuf
-                </Link>
+                <div className="text-center md:text-left">
+                  <Link
+                    href="/premium/payment?price=150" // Pass price as query parameter
+                    className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors"
+                  >
+                    <CreditCard size={20} />
+                    <span className="text-sm sm:text-base">
+                      Faaruu Bitachuuf
+                    </span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -323,9 +333,9 @@ export default function ResourcesPage() {
             >
               {" "}
               telegram{" "}
-            </a> irratti nuuf ergaa
-            . Nuti immoo daqiiqaa muraasa keessatti mirkaneessuun qabiyyee
-            sagalee hunda isiniif ni ergina.
+            </a>{" "}
+            irratti nuuf ergaa . Nuti immoo daqiiqaa muraasa keessatti
+            mirkaneessuun qabiyyee sagalee hunda isiniif ni ergina.
           </p>
           <div className="bg-black/30 p-4 rounded-lg">
             <p className="text-sm text-gray-400">

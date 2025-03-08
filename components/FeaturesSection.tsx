@@ -15,7 +15,7 @@ const FeaturesSection = forwardRef<HTMLDivElement>((props, ref) => {
       icon: BookOpen,
       title: "Kitaaba",
       description:
-        "Kitaabiilee Afaan Oromoo bilisaan argachuun ijoollee keessassan qaraa.",
+        "Kitaabiilee Afaan Oromoo karaa online argachuun ijoollee keessassan qaraa.",
       items: [
         "Fakkiiwwan hawwisiisoo ijoolleef qopha'an",
         "Barnoota saffisaa",
