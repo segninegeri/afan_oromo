@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import StackedText from "@/components/stacked-text";
 import { forwardRef } from "react";
-
+import afanOromoImage from "@/public/images/photo_2025-02-11_14-34-05.jpg";
 
 const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
   return (
@@ -35,7 +35,7 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
           <div className="relative">
             <div className="parallax-element glass-panel p-4 md:p-6">
               <Image
-                src="/images/photo_2025-02-11_14-34-05.jpg"
+                src={afanOromoImage}
                 alt="Afan Oromo Learning Platform"
                 width={600}
                 height={300}
