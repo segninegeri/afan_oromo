@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import FAQSection from "@/components/faq-section";
-
+import { Analytics } from "@vercel/analytics/react"
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -98,7 +98,8 @@ export default function Home() {
     <div className="min-h-screen">
       <HeroSection ref={heroRef} />
       <FeaturesSection ref={featuresRef} />
-      <FAQSection  />
+      <FAQSection />
+      <Analytics/>
     </div>
   );
 }
