@@ -37,8 +37,8 @@ export default function PaymentInstructions({
             3
           </span>
           <span>
-            For Bank Transfer: Account Number <strong>01320593613700</strong>{" "}
-            (Awash Bank)
+            For Bank Transfer: Account Number <strong>1000147858241</strong>{" "}
+            (CBE Bank)
           </span>
         </li>
         <li className="flex gap-2">
