@@ -29,7 +29,7 @@ export default function PaymentInstructions({
             2
           </span>
           <span>
-            For Telebirr: Send to <strong>+251 92 553 0324</strong>
+            For Telebirr: Send to <strong>0920408204</strong>
           </span>
         </li>
         <li className="flex gap-2">
